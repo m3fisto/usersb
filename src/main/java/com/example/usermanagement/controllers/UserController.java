@@ -1,6 +1,6 @@
 package com.example.usermanagement.controllers;
 
-import com.example.usermanagement.Services.UserService;
+import com.example.usermanagement.services.UserService;
 import com.example.usermanagement.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,10 +19,10 @@ public UserController(UserService userService) {
         return userService.saveUser(userDto);
     }
 
-//    @RequestMapping(path= "/user/{userId}", method = RequestMethod.DELETE)
-//    public void deleteUser(@PathVariable String userId){
-//        userService.deleteUser(userId);
-//    }
+    @RequestMapping(path= "/user/{userId}", method = RequestMethod.DELETE)
+    public UserDto deleteUser(@PathVariable String userId){
+        return userService.deleteUser(userId);
+    }
 
     @RequestMapping(path= "/user/mail/{email}", method = RequestMethod.GET)
     public UserDto getUserMail(@PathVariable String email){

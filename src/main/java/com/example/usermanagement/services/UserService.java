@@ -1,4 +1,4 @@
-package com.example.usermanagement.Services;
+package com.example.usermanagement.services;
 
 import com.example.usermanagement.dto.UserDto;
 import com.example.usermanagement.model.User;
@@ -41,9 +41,9 @@ public class UserService {
 
     }
 
-//    public void deleteUser(String userId){
-//
-//        userMapper.convertToUserDto(userRepository.deleteUserById(userId));
-//
-//    }
+    public UserDto deleteUser(String userId){
+
+       return  userMapper.convertToUserDto(userRepository.deleteUserById(userId));
+
+    }
 }

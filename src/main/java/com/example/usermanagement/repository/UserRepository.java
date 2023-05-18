@@ -35,11 +35,12 @@ public class UserRepository {
 
     public User deleteUserById(String id){
         User user = findUserById(id);
+
         user.setId(null);
         user.setFirstName(null);
         user.setLastname(null);
         user.setEmail(null);
-return user;
+        return user;
     }
     public Map<String, User> getUserMap() {
         return userMap;
