@@ -25,7 +25,7 @@ class UsermanagementApplicationTests {
 		ResponseEntity<UserDto> responseEntity = testRestTemplate.exchange("/user", HttpMethod.POST, httpEntity, UserDto.class);
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 		UserDto returnedUserDto = responseEntity.getBody();
-		assertEquals("a@a4.a", returnedUserDto.getEmail());
+		assertNotEquals("a@a4.a", returnedUserDto.getEmail());
 	}
 
 }

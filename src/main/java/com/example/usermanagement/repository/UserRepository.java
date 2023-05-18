@@ -1,5 +1,6 @@
 package com.example.usermanagement.repository;
 
+import com.example.usermanagement.dto.UserDto;
 import com.example.usermanagement.model.User;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
@@ -42,6 +43,12 @@ public class UserRepository {
         user.setEmail(null);
         return user;
     }
+
+//    public User findUserByIdAlt(String id){
+//        User user = new User();
+//        UserDto userDto = userMap()
+//        return user;
+//    }
     public Map<String, User> getUserMap() {
         return userMap;
     }

@@ -46,4 +46,9 @@ public class UserService {
        return  userMapper.convertToUserDto(userRepository.deleteUserById(userId));
 
     }
+//    public UserDto getUser(String userId){
+//User user = userRepository.findUserByIdAlt(userId);
+//       return  userMapper.convertToUserDto(user);
+//
+//    }
 }
