@@ -28,16 +28,22 @@ public class UserService {
         UserDto saveUserDto =userMapper.convertToUserDto(user);
         return saveUserDto;
     }
-    public UserDto getUser(String userId){
-        User user = userRepository.findUserById(userId);
+    public UserDto getUserByEmail(String email){
+       User user = userRepository.findUserByEmail(email);
+        UserDto savedUserDto = userMapper.convertToUserDto(user);
+        return savedUserDto;
+
+    }
+    public UserDto getUserById(String id){
+       User user = userRepository.findUserById(id);
         UserDto savedUserDto = userMapper.convertToUserDto(user);
         return savedUserDto;
 
     }
 
-    public void deleteUser(String userId){
-
-        userMapper.convertToUserDto(userRepository.deleteUserById(userId));
-
-    }
+//    public void deleteUser(String userId){
+//
+//        userMapper.convertToUserDto(userRepository.deleteUserById(userId));
+//
+//    }
 }

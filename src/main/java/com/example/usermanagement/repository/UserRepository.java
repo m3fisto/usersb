@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+
 @Component
 public class UserRepository {
     private Map<String, User> userMap;
@@ -17,7 +19,18 @@ public class UserRepository {
         userMap.put(user.getEmail(), user);
     }
     public User findUserById(String id){
-        return userMap.get(id);
+        Optional<User> optionalUser = userMap.values()
+                .stream()
+                .filter(user -> user.getId().equalsIgnoreCase(id))
+                .findAny();
+        return optionalUser.get();
+    }
+    public User findUserByEmail(String email){
+        Optional<User> optionalUser = userMap.values()
+                .stream()
+                .filter(user -> user.getEmail().equalsIgnoreCase(email))
+                .findAny();
+        return optionalUser.get();
     }
 
     public User deleteUserById(String id){

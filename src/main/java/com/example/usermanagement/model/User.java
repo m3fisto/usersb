@@ -1,5 +1,8 @@
 package com.example.usermanagement.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class User {
     private String id;
     private String email;

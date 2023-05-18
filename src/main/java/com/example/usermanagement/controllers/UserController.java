@@ -5,8 +5,6 @@ import com.example.usermanagement.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-
 @RestController
 public class UserController {
     private UserService userService;
@@ -21,13 +19,17 @@ public UserController(UserService userService) {
         return userService.saveUser(userDto);
     }
 
-    @RequestMapping(path= "/user/{userId}", method = RequestMethod.DELETE)
-    public void deleteUser(@PathVariable String userId){
-        userService.deleteUser(userId);
-    }
+//    @RequestMapping(path= "/user/{userId}", method = RequestMethod.DELETE)
+//    public void deleteUser(@PathVariable String userId){
+//        userService.deleteUser(userId);
+//    }
 
-    @RequestMapping(path= "/user/{userId}", method = RequestMethod.GET)
-    public UserDto getUser(@PathVariable String userId){
-        return userService.getUser(userId);
+    @RequestMapping(path= "/user/mail/{email}", method = RequestMethod.GET)
+    public UserDto getUserMail(@PathVariable String email){
+        return userService.getUserByEmail(email);
+    }
+ @RequestMapping(path= "/user/id/{id}", method = RequestMethod.GET)
+    public UserDto getUserId(@PathVariable String id){
+        return userService.getUserById(id);
     }
 }
